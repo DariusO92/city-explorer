@@ -18,7 +18,7 @@
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-Roger Reyes
+- Roger Reyes https://github.com/RogerMReyes
 Time Estimates
 Name of feature: Asynchronous code, and APIs
 
