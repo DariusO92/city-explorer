@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Map from './Map';
 import './App.css';
 
 class App extends React.Component {
@@ -10,10 +11,11 @@ class App extends React.Component {
       cData: {},
       display_name: '',
       latitude: '',
-      longitude: '',
+      longitude:'',
        error: false,
-       errorMessage: ''
-
+       errorMessage: '',
+       showMap: false,
+       
     }
   }
 
@@ -26,8 +28,9 @@ handleCitySubmit = async (e) => {
    console.log(cData.data[0]);
   this.setState({
     display_name: cData.data[0].display_name,
-    latitude: cData.data[0].lat,
-    longitude:cData.data[0].lon,
+    latitude: parseInt(cData.data[0].lat),
+    longitude:parseInt(cData.data[0].lon),
+    showMap:true
   });
 
   } catch (error){
@@ -48,6 +51,7 @@ handleCityInput =(e) => {
 }
 
 render() {
+  console.log(this.state)
 
   return (
     <>
@@ -63,12 +67,21 @@ render() {
             ?
             <p>{this.state.errorMessage}</p>
             :
-            <ul>
-              {this.state.latitude}
-              {this.state.longitude} 
-            </ul>
+            <><ul>
+            {this.state.display_name}
+            {this.state.latitude}
+            {this.state.longitude}
+          </ul></>
         }
-
+       {
+         this.state.showMap
+         ?
+         <Map 
+         lat = {this.state.latitude}
+         lon ={this.state.longitude}
+         />
+         : <p></p>
+       }
 
     </>
   )
