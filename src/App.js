@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Map from './Map';
+import Weather from './Weather';
 import './App.css';
 
 class App extends React.Component {
@@ -12,11 +13,12 @@ class App extends React.Component {
       display_name: '',
       latitude: '',
       longitude:'',
+      weatherData: '',
        error: false,
        errorMessage: '',
        showMap: false,
-       
-    }
+        
+        }
   }
 
 
@@ -26,11 +28,17 @@ handleCitySubmit = async (e) => {
   let url =  `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`;
   let cData = await axios.get(url);
    console.log(cData.data[0]);
+
+   let cityForeCast = await axios.get(
+     `${process.env.REACT_APP_SERVER}/weather?cityInput =${this.state.city}`
+   );
+
   this.setState({
     display_name: cData.data[0].display_name,
     latitude: parseInt(cData.data[0].lat),
     longitude:parseInt(cData.data[0].lon),
-    showMap:true
+    // weatherData: 
+    showMap:true,
   });
 
   } catch (error){

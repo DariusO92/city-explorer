@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image'
 
 class Map extends React.Component {
   render () {
-    let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.lat},${this.props.lon}&zoom=12`;
+    let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.lat},${this.props.lon}&zoom=14`;
    console.log(mapUrl)
     return (
       // <Card>
