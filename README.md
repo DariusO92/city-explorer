@@ -19,7 +19,7 @@
 
 ## Credit and Collaborations
 - Roger Reyes https://github.com/RogerMReyes
-Time Estimates
+### Time Estimates
 Name of feature: Asynchronous code, and APIs
 
 Estimate of time needed to complete: All day
@@ -29,6 +29,16 @@ Start time: 230
 Finish time: 5pm next day
 
 Actual time needed to complete: 8hrs
+
+Name of feature: Custom Servers with Node and Express
+
+Estimate of time needed to complete: 6 hours
+
+Start time: 2:30 pm two days ago
+
+Finish time: 4:00 pm 4/21
+
+Actual time needed to complete: two days
 
 
 # ![Lab06 Whiteboard](https://user-images.githubusercontent.com/99936580/163880043-312d327c-9b51-43a4-94d8-fc87305fe017.jpg)
