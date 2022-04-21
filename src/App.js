@@ -13,7 +13,7 @@ class App extends React.Component {
       display_name: '',
       latitude: '',
       longitude:'',
-      weatherData: '',
+      weatherData: [],
        error: false,
        errorMessage: '',
        showMap: false,
@@ -29,11 +29,8 @@ handleCitySubmit = async (e) => {
   let cData = await axios.get(url);
    console.log(cData.data[0]);
 
-  //  let cityForeCast = await axios.get(
-  //    `${process.env.REACT_APP_SERVER}/weather?cityInput =${this.state.city}`
-  //  );
-
-  this.setState({
+   
+   this.setState({
     display_name: cData.data[0].display_name,
     latitude: cData.data[0].lat,
     longitude: cData.data[0].lon,
@@ -48,6 +45,7 @@ handleCitySubmit = async (e) => {
       errorMessage: `Error has Occurred: ${error.response.status}`
     })
   }
+  this.handleForecast();
 }
 
 handleCityInput =(e) => {
@@ -57,6 +55,17 @@ handleCityInput =(e) => {
   })
 
 }
+
+handleForecast = async () => {
+  
+   let cityUrl = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`;
+   console.log(cityUrl)
+   let weatherData = await axios.get(cityUrl);
+   console.log(weatherData);
+   this.setState({
+     weatherData: weatherData.data
+   })
+} 
 
 render() {
   console.log(this.state)
@@ -84,12 +93,18 @@ render() {
        {
          this.state.showMap
          ?
-         <Map 
-         lat = {this.state.latitude}
-         lon ={this.state.longitude}
-         />
+         <>
+         <Map
+            lat={this.state.latitude}
+            lon={this.state.longitude} />
+            <Weather
+            weatherData = {this.state.weatherData} />
+            </>
          : <p></p>
        }
+       
+    
+       
 
     </>
   )
