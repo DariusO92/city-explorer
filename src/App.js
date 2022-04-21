@@ -29,14 +29,14 @@ handleCitySubmit = async (e) => {
   let cData = await axios.get(url);
    console.log(cData.data[0]);
 
-   let cityForeCast = await axios.get(
-     `${process.env.REACT_APP_SERVER}/weather?cityInput =${this.state.city}`
-   );
+  //  let cityForeCast = await axios.get(
+  //    `${process.env.REACT_APP_SERVER}/weather?cityInput =${this.state.city}`
+  //  );
 
   this.setState({
     display_name: cData.data[0].display_name,
-    latitude: parseInt(cData.data[0].lat),
-    longitude:parseInt(cData.data[0].lon),
+    latitude: cData.data[0].lat,
+    longitude: cData.data[0].lon,
     // weatherData: 
     showMap:true,
   });
