@@ -18,11 +18,11 @@
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-- Roger Reyes https://github.com/
 -Kyle Honaker
+- Roger Reyes https://github.com/RogerMReyes
 
+### Time Estimates
 
-## Time Estimates
 Name of feature: Asynchronous code, and APIs
 
 Estimate of time needed to complete: All day
@@ -32,6 +32,16 @@ Start time: 230
 Finish time: 5pm next day
 
 Actual time needed to complete: 8hrs
+
+Name of feature: Custom Servers with Node and Express
+
+Estimate of time needed to complete: 6 hours
+
+Start time: 2:30 pm two days ago
+
+Finish time: 4:00 pm 4/21
+
+Actual time needed to complete: two days
 
 
 Name of feature: Refactoring into Modules Overview And Catch up day
