@@ -56,3 +56,4 @@ Actual time needed to complete: 10hrs
 
 
 # ![Lab06 Whiteboard](https://user-images.githubusercontent.com/99936580/163880043-312d327c-9b51-43a4-94d8-fc87305fe017.jpg)
+  ![lab09](https://user-images.githubusercontent.com/99936580/164617072-9b108ea9-4815-49d5-959f-df83d790366b.JPG)
