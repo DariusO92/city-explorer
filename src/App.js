@@ -3,6 +3,7 @@ import axios from 'axios';
 import Map from './Map';
 import Weather from './Weather';
 import './App.css';
+import Movies from './Movies';
 
 class App extends React.Component {
   constructor(props){
@@ -14,6 +15,7 @@ class App extends React.Component {
       latitude: '',
       longitude:'',
       weatherData: [],
+      movieData: [],
        error: false,
        errorMessage: '',
        showMap: false,
@@ -45,7 +47,9 @@ handleCitySubmit = async (e) => {
       errorMessage: `Error has Occurred: ${error.response.status}`
     })
   }
+  console.log('weather')
   this.handleForecast();
+  this.handleMovie();
 }
 
 handleCityInput =(e) => {
@@ -58,13 +62,21 @@ handleCityInput =(e) => {
 
 handleForecast = async () => {
   
-   let cityUrl = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`;
+   let cityUrl = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.latitude}&lon=${this.state.longitude}`;
    console.log(cityUrl)
    let weatherData = await axios.get(cityUrl);
    console.log(weatherData);
    this.setState({
      weatherData: weatherData.data
    })
+}
+handleMovie = async () => {
+  let movieUrl = `${process.env.REACT_APP_SERVER}/movies?cityName=${this.state.city}`;
+  let movieData = await axios.get(movieUrl)
+  console.log(movieData)
+  this.setState({
+    movieData: movieData.data
+  })
 } 
 
 render() {
@@ -99,6 +111,8 @@ render() {
             lon={this.state.longitude} />
             <Weather
             weatherData = {this.state.weatherData} />
+            <Movies
+            city={this.state.movieData} />
             </>
          : <p></p>
        }
